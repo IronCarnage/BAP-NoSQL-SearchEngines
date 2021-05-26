@@ -59,10 +59,8 @@ namespace BAP_NoSQL_SearchEngines.Repositories
 
             options.Size = take;
             options.Skip = take * (page - 1);
-            options.Select.Add("Id");
 
             var response = await indexClient.SearchAsync<ArticleDTO>(searchTerm, options);
-            //var result = response.Value.GetResults().Select(e => e.Document);
             var result = response.Value.GetResults().Count();
 
 
